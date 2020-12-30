@@ -10,28 +10,19 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   User.create({ name: req.body.name, email: req.body.email, password: req.body.password, token: null }, function (err, data) {
-    res.status(201).json({
-      status: 'SUCCESS',
-      data: data
-    });
+    res.status(201).json(data);
   })
 });
 
 router.put('/:_id', function (req, res, next) {
   User.findByIdAndUpdate(req.params._id, { name: req.body.name, email: req.body.email, password: req.body.password, token: null }, { new: true }, function (err, data) {
-    res.status(201).json({
-      status: 'SUCCESS',
-      data: data
-    });
+    res.status(201).json(data);
   })
 });
 
 router.delete('/:_id', function (req, res, next) {
   User.findByIdAndRemove(req.params._id, function (err, data) {
-    res.status(201).json({
-      status: 'SUCCESS',
-      data: data
-    });
+    res.status(201).json(data);
   })
 });
 

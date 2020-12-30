@@ -10,28 +10,19 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   Category.create({category: req.body.category}, function(err, data) {
-    res.status(201).json({
-        status: "SUCCESS",
-        data: data
-    });
+    res.status(201).json(data);
   })
 });
 
 router.put('/:_id', function(req, res, next) {
   Category.findByIdAndUpdate(req.params._id, {category: req.body.category}, {new: true}, function(err, data) {
-    res.status(201).json({
-        status: 'SUCCESS',
-        data: data
-    });
+    res.status(201).json(data);
   })
 });
 
 router.delete('/:_id', function(req, res, next) {
   Category.findByIdAndRemove(req.params._id, function(err, data) {
-    res.status(201).json({
-        status: 'SUCCESS',
-        data: data
-    });
+    res.status(201).json(data);
   })
 });
 
