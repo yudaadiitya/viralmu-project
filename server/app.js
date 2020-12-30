@@ -7,7 +7,8 @@ const cors = require('cors');
 
 mongoose.connect('mongodb://localhost/viralmudb', {
     useNewUrlParser: true,
-    useUnifiedTopology: true 
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 const db = mongoose.connection;
@@ -19,6 +20,7 @@ db.once('open', function() {
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const categoryRouter = require('./routes/category')
+const videoRouter = require('./routes/video')
 
 const app = express();
 
@@ -32,5 +34,6 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/api/user', userRouter);
 app.use('/api/category', categoryRouter);
+app.use('/api/video', videoRouter);
 
 module.exports = app;

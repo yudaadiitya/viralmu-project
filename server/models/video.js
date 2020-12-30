@@ -8,18 +8,21 @@ const videoSchema = new mongoose.Schema({
         type: String,
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'User',
+        id: String,
+        name: String,
+        email: String
     },
     category: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Category',
+        category: String,
     },
     comment: [
         {
             user: {
-                type: mongoose.Schema.Types.ObjectId, ref: 'User',
+                id: String,
+                name: String
             },
             comments: {
-                type: Text,
+                type: String,
             },
         }
     ]
