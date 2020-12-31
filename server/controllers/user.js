@@ -5,12 +5,12 @@ const User = require('../models/user');
 
 exports.postLogin = (req, res, next) => {
     const { email, password } = req.body;
-    User.findOne({ 'email': email }, function (err, admin) {
+    User.findOne({ 'email': email }, function (err, user) {
         if (err) {
             res.status(400).json({ error: err });
         } else {
-            if (admin) {
-                bcrypt.compare(password, admin.password, function (err, valid) {
+            if (user) {
+                bcrypt.compare(password, user.password, function (err, valid) {
                     if (valid) {
                         let token = jwt.sign({ 'email': email }, 'rubicamp');
                         User.findOneAndUpdate({ 'email': email }, { 'token': token }, function (err, response) {
@@ -53,3 +53,30 @@ exports.postRegister = (req, res, next) => {
         res.status(400).json({ 'message': 'invalid data password and retypepassword' });
     }
 }
+
+exports.getDestroy = (req, res, next) => {
+    let { token } = req.headers;
+
+    User.findOneAndUpdate({ 'token': token }, { 'token': null }, function (err, response) {
+        if (err) {
+            res.status(400).json({logout: false});
+        } else {
+            res.status(200).json({logout: true});
+        }
+    })
+}
+
+exports.getCheck = (req, res, next) => {
+    let token = req.header('token');
+    User.findOne({ 'token': token }, function (err, user) {
+        if (err) {
+            res.status(400).json({ error: err });
+        } else {
+            if (user) {
+                res.status(200).json({ valid: true });
+            } else {
+                res.status(200).json({ valid: false });
+            }
+        }
+    })
+};
