@@ -6,8 +6,8 @@ const bcrypt = require('bcrypt');
 
 const server = require('../app');
 const User = require('../models/user');
-const should = chai.should();
 
+const should = chai.should();
 chai.use(chaiHTTP);
 
 describe('User', () => {
@@ -154,7 +154,8 @@ describe('User', () => {
     });
 
     it('Should destroy token from user', function (done) {
-        chai.request(server)
+        chai
+            .request(server)
             .post('/api/user/login')
             .send({
                 email: 'yuda10@gmail.com',
@@ -163,7 +164,8 @@ describe('User', () => {
             })
             .end(function (err, res) {
                 let token = res.body.token;
-                chai.request(server)
+                chai
+                    .request(server)
                     .get('/api/user/logout')
                     .set('token', token)
                     .end(function (err, response) {

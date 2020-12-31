@@ -16,12 +16,12 @@ describe('video', function () {
         let video = new Video({
             title: 'Video viral 2020',
             description: 'Video viral 2020 yang lagi viral banget pokoknya',
-            comment: 'Share ke orang banyak deh biar makin viral'
+            comment: { comments: 'Share ke orang banyak deh biar makin viral' }
         });
         video.save(function (err) {
             done();
         })
-        console.log(video)
+        // console.log(video)
     })
 
     afterEach(function (done) {
@@ -36,14 +36,88 @@ describe('video', function () {
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('array');
+                // console.log(res.body)
                 res.body[0].should.have.property('_id');
                 res.body[0].should.have.property('title');
                 res.body[0].should.have.property('description');
                 res.body[0].should.have.property('comment');
                 res.body[0].title.should.equal('Video viral 2020');
                 res.body[0].description.should.equal('Video viral 2020 yang lagi viral banget pokoknya');
-                res.body[0].comment.should.equal('Share ke orang banyak deh biar makin viral');
+                // console.log(res.body[0].comment)
+                res.body[0].comment.should.be.a('array')
                 done();
+            })
+    })
+
+    it('Should add a SINGLE Video on /api/video POST', function (done) {
+        chai.request(server)
+            .post('/api/video')
+            .send({
+                'title': 'Video viral 2021',
+                'description': 'Video viral 2021 yang lagi viral banget pokoknya',
+                'comment': { comments: 'Share ke orang banyak deh biar makin viral' }
+            })
+            .end(function (err, res) {
+                res.should.have.status(201);
+                res.should.be.json;
+                res.body.should.be.a('object');
+                res.body.should.have.property('title');
+                res.body.should.have.property('description');
+                res.body.should.have.property('comment');
+                res.body.should.have.property('_id');
+                res.body.title.should.equal('Video viral 2021');
+                res.body.description.should.equal('Video viral 2021 yang lagi viral banget pokoknya');
+                res.body.comment.should.be.a('array')
+                done();
+            })
+    })
+
+    it('Should update a SINGLE Video on /api/video/<id> PUT', function (done) {
+        chai.request(server)
+            .get('/api/video')
+            .end(function (err, res) {
+                chai.request(server)
+                    .put(`/api/video/${res.body[0]._id}`)
+                    .send({
+                        title: 'Video viral 2020',
+                        description: 'Video viral 2020 yang lagi viral banget pokoknya',
+                        comment: { comments: 'Share ke orang banyak deh biar makin viral' }
+                    })
+                    .end(function (err, response) {
+                        response.should.have.status(201);
+                        response.should.be.json;
+                        response.body.should.be.a('object');
+                        response.body.should.have.property('title');
+                        response.body.should.have.property('description');
+                        response.body.should.have.property('comment');
+                        response.body.should.have.property('_id');
+                        response.body.title.should.equal('Video viral 2020');
+                        response.body.description.should.equal('Video viral 2020 yang lagi viral banget pokoknya');
+                        response.body.comment.should.be.a('array')
+                        done();
+                    })
+            })
+    })
+
+    it('Should delete a SINGLE Category on /api/video/<id> DELETE', function (done) {
+        chai.request(server)
+            .get('/api/video')
+            .end(function (err, res) {
+                chai.request(server)
+                    .delete(`/api/video/${res.body[0]._id}`)
+                    .end(function (err, response) {
+                        response.should.have.status(201)
+                        response.should.be.json;
+                        response.body.should.be.a('object');
+                        response.body.should.have.property('title');
+                        response.body.should.have.property('description');
+                        response.body.should.have.property('comment');
+                        response.body.should.have.property('_id');
+                        response.body.title.should.equal('Video viral 2020');
+                        response.body.description.should.equal('Video viral 2020 yang lagi viral banget pokoknya');
+                        response.body.comment.should.be.a('array');
+                        done();
+                    })
             })
     })
 })
