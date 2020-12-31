@@ -3,27 +3,22 @@ const mongoose = require('mongoose')
 const videoSchema = new mongoose.Schema({
     title: {
         type: String,
+        required: true
     },
     description: {
         type: String,
+        required: true
     },
     user: {
-        id: String,
-        name: String,
-        email: String
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
     },
     category: {
-        category: String,
+        type: mongoose.Schema.Types.ObjectId, ref: 'Category'
     },
     comment: [
         {
-            user: {
-                id: String,
-                name: String
-            },
-            comments: {
-                type: String,
-            },
+            user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+            comments: String
         }
     ]
 }, { timestamps: true });

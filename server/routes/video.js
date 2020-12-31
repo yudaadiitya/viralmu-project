@@ -10,26 +10,30 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     Video.create({
-        title: req.body.title, 
-        description: req.body.description, 
-        user: {
-            id: req.body.id,
-            name: req.body.name,
-            email: req.body.email
-        },
-        category: req.body.category,
+        title: req.body.title,
+        description: req.body.description,
         comment: [
             {
-                user: {
-                    id: req.body.id,
-                    name: req.body.name
-                },
                 comments: req.body.comments
             }
         ]
     }, function (err, data) {
         if (err) {
-            console.log(err)
+            return res.status(400).json({ message: "Failed to post the video!" })
+        } else {
+            res.status(201).json(data);
+        }
+    })
+});
+
+router.put('/:_id', function (req, res, next) {
+    Video.findByIdAndUpdate(req.params._id, {
+        title: req.body.title,
+        description: req.body.description,
+        comments: req.body.comments
+    }, { new: true }, function (err, data) {
+        if (err) {
+            return res.status(400).json({ message: "Failed to update the video!" })
         } else {
             res.status(201).json(data);
         }

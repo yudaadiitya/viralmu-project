@@ -9,13 +9,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  Category.create({category: req.body.category}, function(err, data) {
+  Category.create({ category: req.body.category }, function(err, data) {
     res.status(201).json(data);
   })
 });
 
 router.put('/:_id', function(req, res, next) {
-  Category.findByIdAndUpdate(req.params._id, {category: req.body.category}, {new: true}, function(err, data) {
+  Category.findByIdAndUpdate(req.params._id, { category: req.body.category }, { new: true }, function(err, data) {
     res.status(201).json(data);
   })
 });
