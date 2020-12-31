@@ -12,7 +12,7 @@ function App() {
         <main>
           <Route exact path='/' component={Home} />
           <Route path='/signin' component={Signin} />
-          <Route path='/segnup' component={Signup} />
+          <Route path='/signup' component={Signup} />
         </main>
       </div>
     </BrowserRouter>

@@ -13,119 +13,72 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+export default class FormLogin extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    }
 
-export default function SignInSide() {
-  const classes = useStyles();
+    this.handleEmail = this.handleEmail.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+  }
 
-  return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
+  handleEmail(value) {
+    this.setState({ email: value })
+  }
+
+  handlePassword(value) {
+    this.setState({ password: value })
+  }
+
+  handleLogin() {
+    this.props.loginProcess(
+      this.state.email,
+      this.state.password
+    )
+
+  }
+
+  render() {
+
+    return (
+      <section class="form_popup">
+        <div class="login_form" id="login_form">
+          <div class="hd-lg">
+            <img src="images/logo.png" alt="" />
+            <span>Log into your Oren account</span>
+          </div>
+          <div class="user-account-pr">
+            <form>
+              <div class="input-sec">
+                <input type="text" name="email" placeholder="Email" />
+              </div>
+              <div class="input-sec">
+                <input type="Password" name="password" placeholder="Password" />
+              </div>
+              <div class="chekbox-lg">
+                <label>
+                  <input type="checkbox" name="remember" value="rem" />
+                  <b class="checkmark"> </b>
+                  <span>Remember me</span>
+                </label>
+              </div>
+              <div class="input-sec mb-0">
+                <button type="submit">Login</button>
+              </div>
+            </form>
+            <a href="#" title="" class="fg_btn">Forgot password?</a>
+          </div>
+          <div class="fr-ps">
+            <h1>Don’t have an account? <a href="signup.html" title="" class="show_signup">Signup here.</a></h1>
+          </div>
         </div>
-      </Grid>
-    </Grid>
-  );
+      </section>
+    );
+  };
 }
+
