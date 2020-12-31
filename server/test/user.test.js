@@ -113,43 +113,68 @@ describe('User', () => {
             .request(server)
             .post('/api/user/login')
             .send({
-                email: 'yuda@gmail.com',
+                email: 'yuda10@gmail.com',
                 password: '1234'
             })
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.have.property('data');
-                res.body.data.should.be.a('string');
+                res.body.data.should.be.a('object');
                 res.body.should.have.property('token');
-                res.body.data.should.be.a('string');
+                res.body.token.should.be.a('string');
+                res.body.data.email.should.equal('yuda10@gmail.com');
                 done();
             });
     });
 
-    // it('Should accepted the token', done => {
-    //     chai
-    //         .request(app)
-    //         .post('/api/users/login')
-    //         .send({
-    //             email: 'ikhdamuhammad@gmail.com',
-    //             password: '1234'
-    //         })
-    //         .end((err, res) => {
-    //             chai
-    //                 .request(app)
-    //                 .post('/api/users/check')
-    //                 .set('token', res.body.token)
-    //                 .end((error, response) => {
-    //                     expect(response).to.have.status(200);
-    //                     expect(response).to.be.json;
-    //                     expect(response.body).to.have.property('valid');
-    //                     expect(response.body.valid).to.be.a('string');
-    //                     expect(response.body.valid).to.equal('true');
-    //                     done();
-    //                 });
-    //         });
-    // });
+    it('Should accepted the token', done => {
+        chai
+            .request(server)
+            .post('/api/user/login')
+            .send({
+                email: 'yuda10@gmail.com',
+                password: '1234',
+                retypepassword: '1234'
+            })
+            .end((err, res) => {
+                let token = res.body.token;
+                chai
+                    .request(server)
+                    .get('/api/user/check')
+                    .set('token', token)
+                    .end((error, response) => {
+                        response.should.have.status(200);
+                        response.should.be.json;
+                        response.body.should.have.property('valid');
+                        response.body.valid.should.equal(true);
+                        done();
+                    });
+            });
+    });
+
+    it('Should destroy token from user', function (done) {
+        chai.request(server)
+            .post('/api/user/login')
+            .send({
+                email: 'yuda10@gmail.com',
+                password: '1234',
+                retypepassword: '1234'
+            })
+            .end(function (err, res) {
+                let token = res.body.token;
+                chai.request(server)
+                    .get('/api/user/logout')
+                    .set('token', token)
+                    .end(function (err, response) {
+                        response.should.have.status(200);
+                        response.should.be.json;
+                        response.body.should.have.property('logout');
+                        response.body.logout.should.equal(true);
+                        done();
+                    })
+            })
+    })
 
 
 })
