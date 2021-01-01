@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { postVideo } from '../actions/videos';
+import Swal from 'sweetalert2';
 
 class Upload extends React.Component {
     constructor(props) {
@@ -38,6 +39,19 @@ class Upload extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.addVideo(this.state.title, this.state.description, this.state.url, this.state.category);
+        if (!this.state.category) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Category is already exist!',
+            })
+        } else {
+            Swal.fire(
+                'Good job!',
+                'Your video is successfully upload!',
+                'success'
+            )
+        }
         this.setState({ title: '', description: '', url: '', category: '' })
     }
 
