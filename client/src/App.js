@@ -4,7 +4,7 @@ import Home from './components/Home';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Detail from './components/Detail';
-
+import Upload from './components/Upload';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           <Route path='/signin' component={SignIn} />
           <Route path='/signup' component={SignUp} />
           <Route path='/detail' component={Detail} />
+          <Route path='/upload' component={Upload} />
         </main>
       </div>
     </BrowserRouter>

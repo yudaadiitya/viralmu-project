@@ -55,61 +55,6 @@ export default function Detail() {
                 </div>
             </header>
 
-            <div class="side_menu">
-                <div class="form_dvv">
-                    <a href="#" title="" class="login_form_show">Sign in</a>
-                </div>
-                <div class="sd_menu">
-                    <ul class="mm_menu">
-                        <li>
-                            <span>
-                                <i class="icon-home" />
-                            </span>
-                            <a href="#" title="">Home</a>
-                        </li>
-                        <li>
-                            <span>
-                                <i class="icon-fire" />
-                            </span>
-                            <a href="#" title="">Category</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sd_menu">
-                    <ul class="mm_menu">
-                        <li>
-                            <span>
-                                <i class="icon-logout" />
-                            </span>
-                            <a href="#" title="">Sign out</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sd_menu m_linkz">
-                    <span>RUBICAMP Batch 23</span>
-                </div>
-                <div class="sd_menu bb-0">
-                    <ul class="social_links">
-                        <li>
-                            <a href="#" title="">
-                                <i class="icon-facebook-official" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="">
-                                <i class="icon-twitter" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="">
-                                <i class="icon-instagram" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="dd_menu"></div>
-            </div>
-
             <section class="mn-sec">
                 <div class="container">
                     <div class="row">
