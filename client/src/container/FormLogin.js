@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import FormLogin from "../../components/LoginReg/FormLogin";
+import FormLogin from "../../components/LoginRegister/signin";
 import { loginProcess } from '../../action/users';
 
 const mapDispatchToProps = (dispatch) => ({
