@@ -12,6 +12,8 @@ router.post('/', function (req, res, next) {
     Video.create({
         title: req.body.title,
         description: req.body.description,
+        url: req.body.url,
+        category: req.body.category,
         comment: [
             {
                 comments: req.body.comments
@@ -30,6 +32,7 @@ router.put('/:_id', function (req, res, next) {
     Video.findByIdAndUpdate(req.params._id, {
         title: req.body.title,
         description: req.body.description,
+        url: req.body.url,
         comments: req.body.comments
     }, { new: true }, function (err, data) {
         if (err) {

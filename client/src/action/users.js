@@ -97,5 +97,5 @@ export const signout = () => {
                 payload: { error: res.data.error }
             });
         }
-    };
+    }; 
 };
