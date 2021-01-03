@@ -1,5 +1,5 @@
 const video = (state = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'LOAD_VIDEO_SUCCESS':
             return action.video.map(item => {
                 return item;
@@ -7,7 +7,7 @@ const video = (state = [], action) => {
 
         case 'LOAD_VIDEO_FAILURE':
             break;
-            
+
         case 'POST_VIDEO':
             return [
                 ...state,
@@ -28,6 +28,14 @@ const video = (state = [], action) => {
             return state.map(item => {
                 return item;
             });
+
+        case 'VIEW_VIDEO_SUCCESS':
+            return action.video;
+
+        case 'VIEW_VIDEO_FAILURE':
+
+        default:
+            return state;
 
     }
 }

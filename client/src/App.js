@@ -5,9 +5,6 @@ import Signup from './components/LoginRegister/signup';
 import Home from './components/Home';
 import Detail from './components/Detail';
 import Upload from './components/Upload';
-import { useDispatch, useSelector } from 'react-redux';
-import { isUserLoggedIn } from './actions/users';
-import { useEffect } from 'react';
 
 function App() {
   return (

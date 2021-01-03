@@ -1,39 +1,42 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import ReactPlayer from 'react-player/youtube'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class ItemVideo extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
-            description: ''
+            description: '',
+            url: '',
+            _id: ''
         }
     }
 
     render() {
-        let { title, description } = this.props;
+        let { _id, title, description, url } = this.props;
 
         return (
-            <div class="videoo">
-                <div class="vid_thumbainl">
-                    <a href="/detail" title="">
-                        <img src="images/resources/vide1.png" alt="" />
-                        <span class="vid-time">10:21</span>
-                        <span class="watch_later">
-                            <i class="icon-watch_later_fill" />
-                        </span>
-                    </a>
-                </div>
-                <div class="video_info">
-                    <h3><a href="/detail" title="">{title}</a></h3>
-                    <span>686K views .<small class="posted_dt">1 week ago</small></span>
-                    <span>{description}</span>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                <div class="videoo">
+                    <div class="vid_thumbainl">
+                        <Link to={`/detail/${_id}`} title="" >
+                            <ReactPlayer
+                                className='react-player'
+                                url={url}
+                                width='100%'
+                                height='100%'
+                            />
+                        </Link>
+                    </div>
+                    <div class="video_info">
+                        <h3><Link to={`/detail/${_id}`} title="">{title}</Link></h3>
+                        <h5><Link to={`/detail/${_id}`} title="">{description}</Link></h5>
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default connect(
-    null, null
-)(ItemVideo)
+export default ItemVideo;

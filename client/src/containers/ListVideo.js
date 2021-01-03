@@ -15,22 +15,21 @@ class ListVideo extends Component {
     render() {
         let { video } = this.props;
 
-        const listNode = video.map((item, index) => 
+        const listNode = video.map((item, index) =>
             <ItemVideo
                 index={index + 1}
-                key={item.id}
-                id={item.id}
+                key={item._id}
+                _id={item._id}
                 title={item.title}
                 description={item.description}
+                url={item.url}
             />
         )
 
         return (
             <div class="vidz_list">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                        {listNode}
-                    </div>
+                    {listNode}
                 </div>
             </div>
         )

@@ -8,6 +8,13 @@ router.get('/', function (req, res, next) {
     })
 });
 
+router.get('/:_id', function(req, res) {
+    let _id = req.params._id;
+    Video.find({ _id: _id}, function (err, data) {
+        res.status(200).json(data);
+    })
+})
+
 router.post('/', function (req, res, next) {
     Video.create({
         title: req.body.title,

@@ -64,3 +64,26 @@ export const postVideo = (title, description, url, category) => {
             });
     };
 };
+
+// VIEW DETAIL VIDEO
+export const viewVideoSuccess = (video) => ({
+    type: 'VIEW_VIDEO_SUCCESS',
+    video
+})
+
+export const viewVideoFailure = () => ({
+    type: 'VIEW_VIDEO_FAILURE'
+})
+
+export const viewVideo = (_id) => {
+    return dispatch => {
+        return request.get(`video/${_id}`)
+        .then(function(response) {
+            dispatch(viewVideoSuccess(response.data));
+        })
+        .catch(function(error) {
+            console.error(error);
+            dispatch(viewVideoFailure());
+        })
+    }
+}
