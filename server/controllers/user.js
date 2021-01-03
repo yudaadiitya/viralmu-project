@@ -51,7 +51,7 @@ exports.register = (req, res, next) => {
                 hash_password,
             });
 
-            _user.save((error, user) => {
+            newUser.save((error, user) => {
                 if (error) {
                     return res.status(400).json({
                         message: "invalid data password and retypepassword",

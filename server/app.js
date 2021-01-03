@@ -8,7 +8,8 @@ const cors = require('cors');
 mongoose.connect('mongodb://localhost/viralmudb', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex: true
 });
 
 const db = mongoose.connection;

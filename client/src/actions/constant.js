@@ -7,9 +7,17 @@ export const authConstants = {
     LOGOUT_FAILURE: 'LOGOUT_FAILURE'
 }
 
+<<<<<<< HEAD:client/src/action/constant.js
 
 export const userContants = {
     USER_REGISTER_REQUEST: "USER_REGISTER_REQUEST",
     USER_REGISTER_SUCCESS: "USER_REGISTER_SUCCESS",
     USER_REGISTER_FAILURE: "USER_REGISTER_FAILURE",
 };
+=======
+export const userConstants = {
+    USER_REGISTER_REQUEST: "USER_REGISTER_REQUEST",
+    USER_REGISTER_SUCCESS: "USER_REGISTER_SUCCESS",
+    USER_REGISTER_FAILURE: "USER_REGISTER_FAILURE",
+};
+>>>>>>> ba4ceb946132aecdf45b9bc1358f25063c87046a:client/src/actions/constant.js

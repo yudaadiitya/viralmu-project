@@ -1,4 +1,4 @@
-import { authConstants } from "../action/constant";
+import { authConstants, userConstants } from "../actions/constant";
 
 const initState = {
     token: null,
@@ -12,6 +12,8 @@ const initState = {
     error: null,
     message: ''
 };
+
+console.log(initState);
 
 export default (state = initState, action) => {
 
@@ -51,9 +53,26 @@ export default (state = initState, action) => {
                 loading: false
             }
             break;
-
+        case userConstants.USER_REGISTER_REQUEST:
+            state = {
+                ...state,
+                loading: true
+            }
+            break;
+        case userConstants.USER_REGISTER_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                message: action.payload.message
+            }
+            break;
+        case userConstants.USER_REGISTER_FAILURE:
+            state = {
+                ...state,
+                loading: false,
+                error: action.payload.error
+            }
+            break;
     }
-
-
     return state;
 }

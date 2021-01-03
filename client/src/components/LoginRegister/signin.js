@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { login } from '../../action/users';
+import { login } from '../../actions/users';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -13,12 +13,9 @@ const Signin = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const auth = useSelector(state => state.auth);
+    // const auth = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
-
-    
-
 
     const userLogin = (e) => {
 
@@ -29,8 +26,10 @@ const Signin = (props) => {
         }
 
         dispatch(login(user));
+        // <Redirect to={`/`} />
     }
 
+    // console.log(auth);
     // if(auth.authenticate){
     //     return <Redirect to={`/`} />
     // }
@@ -43,12 +42,12 @@ const Signin = (props) => {
             <span>Log into your Viralmu account</span>
           </div>
           <div class="user-account-pr">
-            <form>
+            <form onSubmit={userLogin}>
               <div class="input-sec">
-                <input type="text" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
               </div>
               <div class="input-sec">
-                <input type="Password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               </div>
               <div class="chekbox-lg">
                 <label>
@@ -64,7 +63,7 @@ const Signin = (props) => {
             <a href="#" title="" class="fg_btn">Forgot password?</a>
           </div>
           <div class="fr-ps">
-            <h1>Don’t have an account? <a href="signup.html" title="" class="show_signup">Signup here.</a></h1>
+            <h1>Don’t have an account? <a href="/signup" title="" class="show_signup">Signup here.</a></h1>
           </div>
         </div>
       </section>
