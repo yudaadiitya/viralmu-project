@@ -16,10 +16,7 @@
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-<<<<<<< HEAD
-=======
     "sweetalert2": "^10.12.6",
->>>>>>> 3a0b22345b3f16e22c653badd903eaa9b453b8f5
     "web-vitals": "^0.2.4"
   },
   "scripts": {
