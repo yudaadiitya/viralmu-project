@@ -29,7 +29,6 @@ const Signin = (props) => {
         // <Redirect to={`/`} />
     }
 
-    // console.log(auth);
     // if(auth.authenticate){
     //     return <Redirect to={`/`} />
     // }

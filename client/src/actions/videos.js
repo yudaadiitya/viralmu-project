@@ -7,6 +7,30 @@ const request = axios.create({
     timeout: 1000
 });
 
+// GET VIDEO
+export const loadVideoSuccess = video => ({
+    type: 'LOAD_VIDEO_SUCCESS',
+    video
+});
+
+export const loadVideoFailure = () => ({
+    type: 'LOAD_VIDEO_FAILURE'
+});
+
+export const loadVideo = () => {
+    return dispatch => {
+        return request
+            .get('video')
+            .then(response => {
+                dispatch(loadVideoSuccess(response.data));
+            })
+            .catch(error => {
+                console.error(error);
+                dispatch(loadVideoFailure());
+            });
+    };
+};
+
 // POST VIDEO
 export const postVideoSuccess = video => ({
     type: 'POST_VIDEO_SUCCESS',

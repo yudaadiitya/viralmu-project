@@ -4,5 +4,5 @@ import video from './videos';
 import Register from './Register';
 
 export default combineReducers({
-  Login, video, Register
+  Login, Register, video
 })
