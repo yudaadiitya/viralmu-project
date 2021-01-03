@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import LoginRegister from './LoginRegister'
-import video from './videos'
+import Login from './Login'
+import video from './videos';
+import Register from './Register';
 
 export default combineReducers({
-  video,
-  LoginRegister
+  Login, Register, video
 })
