@@ -1,4 +1,5 @@
 import React from 'react';
+import ListVideo from '../containers/ListVideo';
 
 export default function Home() {
     return (
@@ -54,60 +55,7 @@ export default function Home() {
                     </div>
                 </div>
             </header>
-            <div class="side_menu">
-                <div class="form_dvv">
-                    <a href="#" title="" class="login_form_show">Sign in</a>
-                </div>
-                <div class="sd_menu">
-                    <ul class="mm_menu">
-                        <li>
-                            <span>
-                                <i class="icon-home" />
-                            </span>
-                            <a href="#" title="">Home</a>
-                        </li>
-                        <li>
-                            <span>
-                                <i class="icon-fire" />
-                            </span>
-                            <a href="#" title="">Category</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sd_menu">
-                    <ul class="mm_menu">
-                        <li>
-                            <span>
-                                <i class="icon-logout" />
-                            </span>
-                            <a href="#" title="">Sign out</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sd_menu m_linkz">
-                    <span>RUBICAMP Batch 23</span>
-                </div>
-                <div class="sd_menu bb-0">
-                    <ul class="social_links">
-                        <li>
-                            <a href="#" title="">
-                                <i class="icon-facebook-official" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="">
-                                <i class="icon-twitter" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="">
-                                <i class="icon-instagram" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+            
             <section class="banner-section">
                 <div class="container">
                     <div class="banner-text">
@@ -159,146 +107,7 @@ export default function Home() {
                     <div class="container">
                         <div class="vidz_sec">
                             <h3>Viral videos for you!</h3>
-                            <div class="vidz_list">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide1.png" alt="" />
-                                                    <span class="vid-time">10:21</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">Kingdom Come: Deliverance Funny Moments and Fails</a></h3>
-                                                <span>686K views .<small class="posted_dt">1 week ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide2.png" alt="" />
-                                                    <span class="vid-time">13:49</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">DR DISRESPECT - Before They Were Famous - Twitch Streamer</a></h3>
-                                                <span>283K views .<small class="posted_dt">3 months ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide3.png" alt="" />
-                                                    <span class="vid-time">2:54</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">Top Perectly Timed Twitch Moments 2017 #7</a></h3>
-                                                <span>2.6M views .<small class="posted_dt">2 months ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide4.png" alt="" />
-                                                    <span class="vid-time">5:25</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">Top 5 Amazing Bridge Block ever in PUBG</a></h3>
-                                                <span>612K views .<small class="posted_dt">5 months ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide5.png" alt="" />
-                                                    <span class="vid-time">4:01</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">Trailer Park Boys Season 12 - Official Trailer</a></h3>
-                                                <span>45K views .<small class="posted_dt">3 days ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide6.png" alt="" />
-                                                    <span class="vid-time">6:20</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">A day in the life of a Google software engineer</a></h3>
-                                                <span>86K views .<small class="posted_dt">6 days ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide7.png" alt="" />
-                                                    <span class="vid-time">8:16</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">Avengers: Infinity War - Gym Workout motivation 2019</a></h3>
-                                                <span>144K views .<small class="posted_dt">6 days ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                        <div class="videoo">
-                                            <div class="vid_thumbainl">
-                                                <a href="/detail" title="">
-                                                    <img src="images/resources/vide8.png" alt="" />
-                                                    <span class="vid-time">29:32</span>
-                                                    <span class="watch_later">
-                                                        <i class="icon-watch_later_fill" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="video_info">
-                                                <h3><a href="/detail" title="">How the Universe Works - The Milky Way Galaxy - Space</a></h3>
-                                                <span>408K views .<small class="posted_dt">19 hours ago</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ListVideo />
                         </div>
                     </div>
                     <section class="more_items_sec text-center">
