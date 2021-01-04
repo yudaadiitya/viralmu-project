@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ItemVideo from './ItemVideo';
 import { connect } from 'react-redux';
 import { loadVideo } from '../actions/videos'
+import Detail from '../components/Detail';
 
 class ListVideo extends Component {
     constructor(props) {

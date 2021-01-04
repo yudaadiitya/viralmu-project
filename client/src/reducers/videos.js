@@ -28,13 +28,7 @@ const video = (state = [], action) => {
             return state.map(item => {
                 return item;
             });
-        default: return state;
-
-        case 'VIEW_VIDEO_SUCCESS':
-            return action.video;
-
-        case 'VIEW_VIDEO_FAILURE':
-
+            
         default:
             return state;
 

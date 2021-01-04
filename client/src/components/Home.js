@@ -47,7 +47,7 @@ export default function Home() {
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="/signin" title="" class="btn-default">Sign In</a>
+                                    <a href="/upload" title="" class="btn-default">Upload</a>
                                 </li>
                             </ul>
                             <div class="clearfix"></div>

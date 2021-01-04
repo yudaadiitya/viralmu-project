@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Signin from './components/LoginRegister/signin';
 import Signup from './components/LoginRegister/signup';
 import Home from './components/Home';
@@ -8,17 +8,19 @@ import Upload from './components/Upload';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <main>
-          <Route exact path='/' component={Home} />
-          <Route path='/signin' component={Signin} />
-          <Route path='/signup' component={Signup} />
-          <Route path='/detail' component={Detail} />
-          <Route path='/upload' component={Upload} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/signin' component={Signin} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/detail/:_id' component={Detail} />
+            <Route path='/upload' component={Upload} />
+          </Switch>
         </main>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

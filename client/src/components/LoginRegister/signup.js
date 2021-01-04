@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signup } from "../../actions/users";
+import { signup } from "../../actions/register";
 import { useEffect } from "react";
 
 const Signup = (props) => {

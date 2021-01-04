@@ -10,8 +10,9 @@ router.get('/', function (req, res, next) {
 
 router.get('/:_id', function(req, res) {
     let _id = req.params._id;
+    console.log(_id);
     Video.find({ _id: _id}, function (err, data) {
-        res.status(200).json(data);
+        res.status(200).json({data: data[0]});
     })
 })
 

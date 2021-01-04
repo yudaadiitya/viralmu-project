@@ -5,12 +5,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 class ItemVideo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: '',
-            description: '',
-            url: '',
-            _id: ''
-        }
     }
 
     render() {
