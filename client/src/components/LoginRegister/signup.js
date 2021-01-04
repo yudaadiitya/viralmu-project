@@ -10,18 +10,19 @@ const Signup = (props) => {
   const [password, setPassword] = useState("");
   const [retypepassword, setRetypePassword] = useState("");
   const [error, setError] = useState("");
-  // const auth = useSelector((state) => state.auth);
-  // const user = useSelector((state) => state.user);
+  const auth = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  console.log(auth)
 
-  // useEffect(() => {
-  //   if (!user.loading) {
-  //     setName("");
-  //     setEmail("");
-  //     setPassword("");
-  //     setRetypePassword("");
-  //   }
-  // }, [user.loading]);
+  useEffect(() => {
+    if (!user.loading) {
+      setName("");
+      setEmail("");
+      setPassword("");
+      setRetypePassword("");
+    }
+  }, [user.loading]);
 
   const userSignup = (e) => {
     e.preventDefault();
@@ -36,13 +37,13 @@ const Signup = (props) => {
     dispatch(signup(user));
   };
 
-  // if (auth.authenticate) {
-  //   return <Redirect to={`/`} />;
-  // }
+  if (auth.authenticate) {
+    return <Redirect to={`/upload`} />;
+  }
 
-  // if (user.loading) {
-  //   return <p>Loading...!</p>;
-  // }
+  if (user.loading) {
+    return <p>Loading...!</p>;
+  }
 
   return (
     <section class="form_popup">

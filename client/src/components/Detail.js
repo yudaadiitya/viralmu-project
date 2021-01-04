@@ -65,7 +65,7 @@ class Detail extends Component {
                                         </video>
                                     </div>
                                     <div class="vid-info">
-                                        <h3>{this.props.title}</h3>
+                                        <h3>{this.props.video.title}</h3>
                                         <div class="info-pr">
                                             <div class="clearfix"></div>
                                         </div>
@@ -88,7 +88,7 @@ class Detail extends Component {
                                     <div class="about-ch-sec">
                                         <div class="abt-rw">
                                             <h4>Description : </h4>
-                                            <p>{this.props.description}</p>
+                                            <p>{this.props.video.description}</p>
                                         </div>
                                     </div>
                                 </div>

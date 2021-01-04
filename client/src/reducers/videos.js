@@ -31,7 +31,6 @@ const video = (state = [], action) => {
             
         default:
             return state;
-
     }
 }
 

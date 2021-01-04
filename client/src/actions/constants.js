@@ -12,3 +12,7 @@ export const userConstants = {
     USER_REGISTER_SUCCESS: "USER_REGISTER_SUCCESS",
     USER_REGISTER_FAILURE: "USER_REGISTER_FAILURE",
 };
+
+export const videoConstants = {
+    LOAD_VIDEO_SUCCESS: 'LOAD_VIDEO_SUCCESS'
+}

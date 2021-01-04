@@ -5,6 +5,6 @@ const {login, logout, register} = require('../controllers/user');
 
 router.post('/login', validateSigninRequest, isRequestValidated, login);
 router.post('/register', validateSignupRequest, isRequestValidated, register);
-router.get('/logout', logout);
+router.post('/logout', logout);
 
 module.exports = router;

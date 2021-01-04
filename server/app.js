@@ -23,6 +23,7 @@ const userRouter = require('./routes/user');
 const categoryRouter = require('./routes/category')
 const videoRouter = require('./routes/video')
 
+
 const app = express();
 
 app.use(logger('dev'));
@@ -36,6 +37,8 @@ app.use('/', indexRouter);
 app.use('/api/user', userRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/video', videoRouter);
+
+
 
 module.exports = app;
 
