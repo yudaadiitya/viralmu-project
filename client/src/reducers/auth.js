@@ -1,4 +1,4 @@
-import { authConstants, userConstants } from "../actions/constant";
+import { authConstants } from "../actions/constants";
 
 const initState = {
     token: null,
@@ -51,26 +51,6 @@ export default (state = initState, action) => {
                 ...state,
                 error: action.payload.error,
                 loading: false
-            }
-            break;
-        case userConstants.USER_REGISTER_REQUEST:
-            state = {
-                ...state,
-                loading: true
-            }
-            break;
-        case userConstants.USER_REGISTER_SUCCESS:
-            state = {
-                ...state,
-                loading: false,
-                message: action.payload.message
-            }
-            break;
-        case userConstants.USER_REGISTER_FAILURE:
-            state = {
-                ...state,
-                loading: false,
-                error: action.payload.error
             }
             break;
     }

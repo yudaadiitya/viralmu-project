@@ -77,7 +77,7 @@ export const viewVideoFailure = () => ({
 
 export const viewVideo = (_id) => {
     return dispatch => {
-        return request.get(`video/${_id}`)
+        return request.get(`detail/${_id}`)
         .then(function(response) {
             dispatch(viewVideoSuccess(response.data));
         })

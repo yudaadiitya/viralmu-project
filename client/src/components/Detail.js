@@ -79,7 +79,7 @@ class Detail extends Component {
                                         </video>
                                     </div>
                                     <div class="vid-info">
-                                        <h3>{this.props.viewVideo.title}</h3>
+                                        <h3>{this.props.video.title}</h3>
                                         <div class="info-pr">
                                             <ul class="pr_links">
                                                 <li>
@@ -115,7 +115,7 @@ class Detail extends Component {
                                     <div class="about-ch-sec">
                                         <div class="abt-rw">
                                             <h4>Description : </h4>
-                                            <p>{this.props.viewVideo.description}</p>
+                                            <p>{this.props.video.description}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -406,7 +406,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    viewVideo: () => dispatch(viewVideo())
+    viewVideo: (_id) => dispatch(viewVideo(_id))
 })
 
 export default connect(

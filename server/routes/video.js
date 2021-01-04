@@ -10,8 +10,13 @@ router.get('/', function (req, res, next) {
 
 router.get('/:_id', function(req, res) {
     let _id = req.params._id;
-    Video.find({ _id: _id}, function (err, data) {
-        res.status(200).json(data);
+    Video.find({ _id: _id})
+        .exec(function (err, data) {
+            if(err) {
+                res.status(400).json({status:'failed', error: err})
+            } else {
+                res.status(200).json({data});
+            }
     })
 })
 

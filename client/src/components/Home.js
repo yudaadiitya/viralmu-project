@@ -56,11 +56,11 @@ export default function Home() {
                 </div>
             </header>
             
-            <section class="banner-section">
+            <section class="banner-section" style={{ backgroundImage: `url("https://p4.wallpaperbetter.com/wallpaper/255/80/880/beautiful-scenery-hd-background-wallpaper-preview.jpg")`  }}>
                 <div class="container">
                     <div class="banner-text">
                         <h2>Upload your viral video right now!</h2>
-                        <a href="/register" title="">Create my account</a>
+                        <a href="/signin" title="">Create my account</a>
                     </div>
                 </div>
             </section>

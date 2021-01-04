@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import Login from './Login'
-import video from './videos';
-import Register from './Register';
+import authReducer from './auth'
+import videoReducer from './videos';
+import userRegister from './Register';
 
 export default combineReducers({
-  Login, Register, video
+ auth: authReducer, user: userRegister, video: videoReducer
 })

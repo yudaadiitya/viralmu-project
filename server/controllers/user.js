@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 const generateJwtToken = (_id, role) => {
     return jwt.sign({ _id, role }, "RUBICAMP", {
-        expiresIn: "1d",
+        expiresIn: "1m",
     });
 };
 

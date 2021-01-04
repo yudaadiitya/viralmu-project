@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { postVideo } from '../actions/videos';
+import { signout } from '../actions/users';
 import Swal from 'sweetalert2';
+// import { logout } from '../../../server/controllers/user';
 
 class Upload extends React.Component {
     constructor(props) {
@@ -18,6 +20,7 @@ class Upload extends React.Component {
         this.handleChangeUrl = this.handleChangeUrl.bind(this);
         this.handleChangeCategory = this.handleChangeCategory.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     handleChangeTitle(event) {
@@ -55,6 +58,10 @@ class Upload extends React.Component {
         this.setState({ title: '', description: '', url: '', category: '' })
     }
 
+    handleLogout(){
+        this.props.logout()
+    }
+
     render() {
         return (
             <div class="wrapper">
@@ -74,7 +81,7 @@ class Upload extends React.Component {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#" title="" class="btn-default">Sign Out</a>
+                                    <button type="submit" onClick={this.handleLogout} title="" class="btn-default">Sign Out</button>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -199,7 +206,8 @@ class Upload extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addVideo: (title, description, url, category) => dispatch(postVideo(title, description, url, category))
+    addVideo: (title, description, url, category) => dispatch(postVideo(title, description, url, category)),
+    logout: () => dispatch(signout())
 })
 
 export default connect(

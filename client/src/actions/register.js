@@ -1,4 +1,4 @@
-import { userContants } from "./constant";
+import { userConstants } from "./constants";
 import axios from "../helpers/axios";
 
 export const signup = (user) => {
@@ -7,7 +7,7 @@ export const signup = (user) => {
 
     return async (dispatch) => {
 
-        dispatch({ type: userContants.USER_REGISTER_REQUEST });
+        dispatch({ type: userConstants.USER_REGISTER_REQUEST });
         const res = await axios.post(`/admin/signup`, {
             ...user
         });
@@ -15,13 +15,13 @@ export const signup = (user) => {
         if(res.status === 201){
             const { message } = res.data;
             dispatch({
-                type: userContants.USER_REGISTER_SUCCESS,
+                type: userConstants.USER_REGISTER_SUCCESS,
                 payload: {message}
             });
         }else{
             if(res.status === 400){
                 dispatch({
-                    type: userContants.USER_REGISTER_FAILURE,
+                    type: userConstants.USER_REGISTER_FAILURE,
                     payload: { error: res.data.error }
                 });
             }
