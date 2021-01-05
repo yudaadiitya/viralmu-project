@@ -2,22 +2,34 @@ const express = require('express');
 const router = express.Router();
 const Video = require('../models/video')
 
+// router.get('/', async (req, res, next) =>  {
+//     const PAGE_SIZE = 4;
+//     const page = parseInt(req.query.page || "0");
+//     const total = await Video.countDocuments({});
+//     const videos = await Video.find({})
+//         .limit(PAGE_SIZE)
+//         .skip(PAGE_SIZE * page);
+//     res.status(200).json({
+//         totalPages: Math.ceil(total / PAGE_SIZE), videos,
+//     });
+// });
+
 router.get('/', function (req, res, next) {
     Video.find({}, function (err, data) {
         res.status(200).json(data);
     })
 });
 
-router.get('/:_id', function(req, res) {
+router.get('/:_id', function (req, res) {
     let _id = req.params._id;
-    Video.find({ _id: _id})
+    Video.find({ _id: _id })
         .exec(function (err, data) {
-            if(err) {
-                res.status(400).json({status:'failed', error: err})
+            if (err) {
+                res.status(400).json({ status: 'failed', error: err })
             } else {
-                res.status(200).json({data});
+                res.status(200).json({ data });
             }
-    })
+        })
 })
 
 router.post('/', function (req, res, next) {
