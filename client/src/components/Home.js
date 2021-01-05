@@ -22,11 +22,17 @@ export default function Home() {
                                 </form>
                             </div>
                             <ul class="controls-lv">
+                                <li>
+                                    <a href="#" title=""><i class="icon-message"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="icon-notification"></i></a>
+                                </li>
                                 <li class="user-log">
                                     <div class="user-ac-img">
                                         <img src="images/resources/user-img.png" alt="" />
                                     </div>
-                                    <div class="account-menu">
+                                    <div class="account-menu" >
                                         <h4>RUBICAMP</h4>
                                         <div class="sd_menu">
                                             <ul class="mm_menu">
@@ -55,8 +61,8 @@ export default function Home() {
                     </div>
                 </div>
             </header>
-            
-            <section class="banner-section" style={{ backgroundImage: `url("https://p4.wallpaperbetter.com/wallpaper/255/80/880/beautiful-scenery-hd-background-wallpaper-preview.jpg")`  }}>
+
+            <section class="banner-section" style={{ backgroundImage: `url("https://p4.wallpaperbetter.com/wallpaper/255/80/880/beautiful-scenery-hd-background-wallpaper-preview.jpg")` }}>
                 <div class="container">
                     <div class="banner-text">
                         <h2>Upload your viral video right now!</h2>

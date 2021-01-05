@@ -38,7 +38,7 @@ const Signup = (props) => {
   };
 
   if (auth.authenticate) {
-    return <Redirect to={`/upload`} />;
+    return <Redirect to={`/`} />;
   }
 
   if (user.loading) {
