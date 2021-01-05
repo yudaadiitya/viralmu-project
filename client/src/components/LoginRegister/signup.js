@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signup } from "../../actions/register";
 import { useEffect } from "react";
+import Swal from 'sweetalert2';
 
 const Signup = (props) => {
   const [name, setName] = useState("");
@@ -35,10 +36,16 @@ const Signup = (props) => {
     };
 
     dispatch(signup(user));
+
+    Swal.fire(
+      'Yeay!',
+      'You have been registered!',
+      'success'
+    )
   };
 
   if (auth.authenticate) {
-    return <Redirect to={`/upload`} />;
+    return <Redirect to={`/signin`} />;
   }
 
   if (user.loading) {
@@ -56,37 +63,37 @@ const Signup = (props) => {
         <div class="user-account-pr">
           <form onSubmit={userSignup}>
             <div class="input-sec mgb25">
-              <input 
-                type="text" 
-                name="name" 
+              <input
+                type="text"
+                name="name"
                 placeholder="Name"
                 value={name}
-                onChange={(e) => setName(e.target.value)} 
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div class="input-sec">
-              <input 
-                type="email" 
-                name="email" 
+              <input
+                type="email"
+                name="email"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div class="input-sec">
-              <input 
-                type="Password" 
-                name="password" 
-                placeholder="Password" 
+              <input
+                type="Password"
+                name="password"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div class="input-sec">
-              <input 
-                type="password" 
-                name="retypepassword" 
-                placeholder="Retype Password" 
+              <input
+                type="password"
+                name="retypepassword"
+                placeholder="Retype Password"
                 value={retypepassword}
                 onChange={(e) => setRetypePassword(e.target.value)}
               />

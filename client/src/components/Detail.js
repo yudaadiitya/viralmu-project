@@ -2,15 +2,23 @@ import React, { Component } from 'react';
 import { viewVideo } from '../actions/videos';
 import { connect } from 'react-redux';
 import ReactPlayer from 'react-player/youtube';
-import detailVideo from '../reducers/DetailVideo';
+import { signout } from '../actions/users';
+import BoxComment from '../components/Comment/BoxComment';
+import loadDetailVideo from '../actions/videos';
 
 class Detail extends Component {
     constructor(props) {
         super(props);
+
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     componentDidMount() {
         this.props.viewVideo(this.props.match.params._id);
+    }
+
+    handleLogout() {
+        this.props.logout()
     }
 
     render() {
@@ -38,9 +46,28 @@ class Detail extends Component {
                                         <div class="user-ac-img">
                                             <img src="images/resources/user-img.png" alt="" />
                                         </div>
+                                        <div class="account-menu">
+                                            <h4>RUBICAMP</h4>
+                                            <div class="sd_menu">
+                                                <ul class="mm_menu">
+                                                    <li>
+                                                        <span>
+                                                            <i class="icon-user" />
+                                                        </span>
+                                                        <a href="#" title="">My Profile</a>
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <i class="icon-logout" />
+                                                        </span>
+                                                        <a href="/signout" title="">Sign out</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
-                                        <a href="Upload_Video.html" title="" class="btn-default">Sign In</a>
+                                        <button type="submit" onClick={this.handleLogout} title="" class="btn-default">Sign Out</button>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -58,7 +85,7 @@ class Detail extends Component {
                                         <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
                                             <ReactPlayer
                                                 className='react-player'
-                                                url={this.props.detailVideo.url}
+                                                url={this.props.video.url}
                                                 width='100%'
                                                 height='100%'
                                             />
@@ -93,56 +120,7 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div class="cmt-bx">
-                                <div class="clearfix"></div>
-                                <div class="clearfix"></div>
-                                <div class="vcp_inf pc">
-                                    <div class="vc_hd">
-                                        <img src="images/resources/th1.png" alt="" />
-                                    </div>
-                                    <form>
-                                        <input type="text" placeholder="Type your comments" />
-                                        <button type="submit">Comment</button>
-                                    </form>
-                                    <div class="clearfix"></div>
-                                    <div class="rt-cmt">
-                                        <a href="#" title="">
-                                            <i class="icon-cancel" />
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <ul class="cmn-lst">
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th2.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>ScereBro <small class="posted_dt"> . 18 hours ago</small></h2>
-                                                <p>Where does Thor: Ragnarok rank amongst the other Thor movies? Amongst the
-                                                rest of the MCU? Let us know in the comments below and tell us which
-												other movies you'd like to see us make Honest.</p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>680</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>21</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 164 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <BoxComment />
                         </div>
                     </div>
                 </section>
@@ -180,11 +158,12 @@ class Detail extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    detailVideo: state.detailVideo
+    video: state.video
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    viewVideo: (_id) => dispatch(viewVideo(_id))
+    viewVideo: (_id) => dispatch(viewVideo(_id)),
+    logout: () => dispatch(signout())
 })
 
 export default connect(
