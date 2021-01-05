@@ -90,7 +90,7 @@ class Upload extends React.Component {
                     </div>
                 </header>
 
-                <section class="banner-section p120">
+                <section class="banner-section p120" style={{ backgroundImage: `url("https://phinemo.com/wp-content/uploads/2018/01/tips-videografi-1024x481.jpg")` }}>
                     <div class="container">
                         <div class="banner-text">
                             <h2>Upload your video here</h2>

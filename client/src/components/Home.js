@@ -53,7 +53,7 @@ export default function Home() {
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="/signin" title="" class="btn-default">Sign In</a>
+                                    <a href="/signin" title="" class="btn-default">Upload</a>
                                 </li>
                             </ul>
                             <div class="clearfix"></div>
@@ -62,7 +62,7 @@ export default function Home() {
                 </div>
             </header>
 
-            <section class="banner-section" style={{ backgroundImage: `url("https://p4.wallpaperbetter.com/wallpaper/255/80/880/beautiful-scenery-hd-background-wallpaper-preview.jpg")` }}>
+            <section class="banner-section" style={{ backgroundImage: `url("https://nycpartymasters.com/wp-content/uploads/2016/02/videography-1024x584.jpg")` }}>
                 <div class="container">
                     <div class="banner-text">
                         <h2>Upload your viral video right now!</h2>
