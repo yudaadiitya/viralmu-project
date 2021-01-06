@@ -5,22 +5,16 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 class ItemVideo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: '',
-            description: '',
-            url: '',
-            _id: ''
-        }
     }
 
     render() {
-        let { _id, title, description, url } = this.props;
+        let { _id, title, description, url, viewVideo } = this.props;
 
         return (
             <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
                 <div class="videoo">
                     <div class="vid_thumbainl">
-                        <Link to={`/detail/${_id}`} title="" >
+                        <Link to={`/detail`} title="" >
                             <ReactPlayer
                                 className='react-player'
                                 url={url}
@@ -30,8 +24,8 @@ class ItemVideo extends Component {
                         </Link>
                     </div>
                     <div class="video_info">
-                        <h3><Link to={`/detail/${_id}`} title="">{title}</Link></h3>
-                        <h5><Link to={`/detail/${_id}`} title="">{description}</Link></h5>
+                        <h3><Link to={`/detail`} title="" onClick={viewVideo}>{title}</Link></h3>
+                        <h5><Link to={`/detail`} title="">{description}</Link></h5>
                     </div>
                 </div>
             </div>

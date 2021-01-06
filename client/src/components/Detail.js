@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { viewVideo } from '../actions/videos';
 import { connect } from 'react-redux';
+import ReactPlayer from 'react-player/youtube';
+import { signout } from '../actions/users';
+import BoxComment from '../components/Comment/BoxComment';
+import loadDetailVideo from '../actions/videos';
 
 class Detail extends Component {
     constructor(props) {
         super(props);
+
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
-    componentDidMount() {
-        this.props.viewVideo(this.props.match.params._id);
+    handleLogout() {
+        this.props.logout()
     }
 
     render() {
@@ -50,14 +55,14 @@ class Detail extends Component {
                                                         <span>
                                                             <i class="icon-logout" />
                                                         </span>
-                                                        <a href="#" title="">Sign out</a>
+                                                        <a href="/signout" title="">Sign out</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="Upload_Video.html" title="" class="btn-default">Sign In</a>
+                                        <button type="submit" onClick={this.handleLogout} title="" class="btn-default">Sign Out</button>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -72,28 +77,16 @@ class Detail extends Component {
                             <div class="mn-vid-sc single_video">
                                 <div class="vid-1">
                                     <div class="vid-pr">
-                                        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-                                            poster="images/resources/poster-img.jpg" data-setup="{}">
-                                            <source src="demo_video.mp4" type="video/mp4" />
-                                            <source src="demo_video.webm" type="video/webm" />
-                                        </video>
+                                        <ReactPlayer
+                                            className='react-player-detail'
+                                            url={this.props.video.url}
+                                            width= "1040px" 
+                                            height= "560px"
+                                        />
                                     </div>
                                     <div class="vid-info">
                                         <h3>{this.props.video.title}</h3>
                                         <div class="info-pr">
-                                            <ul class="pr_links">
-                                                <li>
-                                                    <button data-toggle="tooltip" data-placement="top" title="I like this">
-                                                        <i class="icon-thumbs_up_fill" />
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button data-toggle="tooltip" data-placement="top" title="I dislike this">
-                                                        <i class="icon-thumbs_down_fill" />
-                                                    </button>
-                                                    <span>28K</span>
-                                                </li>
-                                            </ul>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
@@ -120,251 +113,7 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div class="cmt-bx">
-                                <ul class="cmt-pr">
-                                    <li><span>18,386</span> Comments</li>
-                                    <li>
-                                        <span><i class="icon-sort_by" /><a href="#" title="">Sort By</a></span>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <div class="clearfix"></div>
-                                <div class="vcp_inf pc">
-                                    <div class="vc_hd">
-                                        <img src="images/resources/th1.png" alt="" />
-                                    </div>
-                                    <form>
-                                        <input type="text" placeholder="Add a public comment" />
-                                        <button type="submit">Comment</button>
-                                    </form>
-                                    <div class="clearfix"></div>
-                                    <div class="rt-cmt">
-                                        <a href="#" title="">
-                                            <i class="icon-cancel" />
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <ul class="cmn-lst">
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th2.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <div class="pinned-comment">
-                                                    <span><i class="icon-pinned" />Pinned by ScereBro</span>
-                                                </div>
-                                                <h2>ScereBro <small class="posted_dt"> . 18 hours ago</small></h2>
-                                                <p>Where does Thor: Ragnarok rank amongst the other Thor movies? Amongst the
-                                                rest of the MCU? Let us know in the comments below and tell us which
-												other movies you'd like to see us make Honest.</p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>680</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>21</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 164 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th3.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Doge <small class="posted_dt"> . 2 hours ago</small></h2>
-                                                <p>Depressive Alcoholics are my favorite superheroes </p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>61</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>3</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 26 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th4.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Juan Lacanaria <small class="posted_dt"> . 12 hours ago</small></h2>
-                                                <p>Can you please say "winner winner , chicken dinner" </p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>22</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span></span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 9 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th5.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Comander Lucky <small class="posted_dt"> . 2 weeks ago</small></h2>
-                                                <p>It looked like electro shuffle was most synced</p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>37</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>3</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 12 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th1.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Menji <small class="posted_dt"> . 1 week ago</small></h2>
-                                                <p>The floss, fresh, flapper, ride the pony were all in sync if you ask me
-                                                plus if they used the original music they would be copyrighted. Plus the
-												original music made it worst for these dances. </p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>147</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>8</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 7 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th3.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Storax Storm <small class="posted_dt"> . 11 hours ago</small></h2>
-                                                <p>Well Epic Games would have gotten Copyrighted if they used the original
-												music but yea I see you</p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>71</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>28</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 21 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th2.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Nick Jacobs <small class="posted_dt"> . 6 hours ago</small></h2>
-                                                <p>Electro shuffle best dance hands down </p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>42</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span></span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 32 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="vcp_inf">
-                                            <div class="vc_hd">
-                                                <img src="images/resources/th4.png" alt="" />
-                                            </div>
-                                            <div class="coments">
-                                                <h2>Jumpman30 <small class="posted_dt"> . 2 hours ago</small></h2>
-                                                <p>bruh okay the original fresh music is the best hands down, it looks
-												classy. the music they put on the fresh in fort nite makes it worse </p>
-                                                <ul class="cmn-i">
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_up" />
-                                                        </a>
-                                                        <span>48</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="">
-                                                            <i class="icon-thumbs_down" />
-                                                        </a>
-                                                        <span>2</span>
-                                                    </li>
-                                                </ul>
-                                                <a href="#" title="">View all 3 replies</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <BoxComment />
                         </div>
                     </div>
                 </section>
@@ -402,11 +151,11 @@ class Detail extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    video: state.video
+    video: state.detailVideo
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    viewVideo: (_id) => dispatch(viewVideo(_id))
+    logout: () => dispatch(signout())
 })
 
 export default connect(

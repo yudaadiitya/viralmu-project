@@ -8,6 +8,13 @@ const request = axios.create({
 });
 
 // GET VIDEO
+// export const loadDetailVideo = video => {
+//     return {
+//         type: 'DETAIL_VIDEO',
+//         item: video
+//     };
+// };
+
 export const loadVideoSuccess = video => ({
     type: 'LOAD_VIDEO_SUCCESS',
     video
@@ -66,24 +73,7 @@ export const postVideo = (title, description, url, category) => {
 };
 
 // VIEW DETAIL VIDEO
-export const viewVideoSuccess = (video) => ({
-    type: 'VIEW_VIDEO_SUCCESS',
+export const viewVideo = (video) => ({
+    type: 'VIEW_VIDEO',
     video
 })
-
-export const viewVideoFailure = () => ({
-    type: 'VIEW_VIDEO_FAILURE'
-})
-
-export const viewVideo = (_id) => {
-    return dispatch => {
-        return request.get(`detail/${_id}`)
-        .then(function(response) {
-            dispatch(viewVideoSuccess(response.data));
-        })
-        .catch(function(error) {
-            console.error(error);
-            dispatch(viewVideoFailure());
-        })
-    }
-}

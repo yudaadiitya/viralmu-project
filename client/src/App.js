@@ -38,7 +38,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/signin' component={Signin} />
           <Route path='/signup' component={Signup} />
-          <Route path='/detail/:_id' component={Detail} />
+          <Route path='/detail' component={Detail} />
           <PrivateRoute path='/upload' component={Upload} />
         </main>
       </div>

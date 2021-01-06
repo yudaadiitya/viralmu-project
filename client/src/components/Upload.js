@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { postVideo } from '../actions/videos';
 import { signout } from '../actions/users';
 import Swal from 'sweetalert2';
-// import { logout } from '../../../server/controllers/user';
 
 class Upload extends React.Component {
     constructor(props) {

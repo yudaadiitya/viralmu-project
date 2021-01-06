@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ItemVideo from './ItemVideo';
 import { connect } from 'react-redux';
-import { loadVideo } from '../actions/videos'
+import { loadVideo, viewVideo } from '../actions/videos'
+import Detail from '../components/Detail';
 
 class ListVideo extends Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class ListVideo extends Component {
                 title={item.title}
                 description={item.description}
                 url={item.url}
+                viewVideo={() => this.props.viewVideo(item)}
             />
         )
 
@@ -41,7 +43,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    getVideo: () => dispatch(loadVideo())
+    getVideo: () => dispatch(loadVideo()),
+    viewVideo: (video) => dispatch(viewVideo(video))
 })
 
 export default connect(
