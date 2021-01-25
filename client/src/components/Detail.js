@@ -25,7 +25,7 @@ class Detail extends Component {
                             <div class="top_header_content">
                                 <div class="menu_logo">
                                     <a href="/" title="" class="logo">
-                                        <img src="images/logo.png" alt="" />
+                                        <img class="logo" src="images/Viral.png" alt="" />
                                     </a>
                                 </div>
                                 <div class="search_form">
@@ -98,7 +98,7 @@ class Detail extends Component {
                                                 <img src="images/resources/th5.png" alt="" />
                                             </div>
                                             <div class="vc_info pr">
-                                                <h4><a href="#" title="">Ade Sugiono</a></h4>
+                                                <h4><a href="#" title="">Yuda Aditya</a></h4>
                                                 <span>Published on Oct 22, 2017</span>
                                             </div>
                                         </div>

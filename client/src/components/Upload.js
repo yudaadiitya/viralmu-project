@@ -70,7 +70,7 @@ class Upload extends React.Component {
                             <div class="top_header_content">
                                 <div class="menu_logo">
                                     <a href="/" title="" class="logo">
-                                        <img src="images/logo.png" alt="" />
+                                        <img  class="logo" src="images/Viral.png" alt="" />
                                     </a>
                                 </div>
                                 <ul class="controls-lv">
@@ -159,29 +159,15 @@ class Upload extends React.Component {
                     </div>
                 </section>
 
-                <section class="suggestions">
-                    <div class="container">
-                        <div class="sgst_content">
-                            <h3>Important!</h3>
-                            <p>Every video that you upload will be verified first by the administrator.<br />
-                                You will be notified if your video has been published successfully. Have a nice day!</p>
-                        </div>
-                    </div>
-                </section>
 
                 <footer>
                     <div class="container">
                         <div class="top-footer">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="ft-logo">
-                                        <img src="images/ft-logo.png" alt="" />
-                                    </div>
-                                </div>
                                 <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                                     <div class="widget widget-information">
                                         <h3 class="widget-title">Information</h3>
-                                        <p>Oren is a video sharing platform created for the discovery & promotion of content
+                                        <p>Viral is a video sharing platform created for the discovery & promotion of content
                                         creators. It's home to breaking news in social media, & urban cultural
 									entertainment.</p>
                                     </div>

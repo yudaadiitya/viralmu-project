@@ -57,7 +57,7 @@ const Signup = (props) => {
 
       <div class="signup_form" id="signup_form">
         <div class="hd-lg">
-          <img src="images/logo.png" alt="" />
+          <img class="logo_signin" src="images/Viral.png" alt="" />
           <span>Register your Viralmu account</span>
         </div>
         <div class="user-account-pr">

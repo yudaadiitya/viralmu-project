@@ -36,7 +36,7 @@ const Signin = (props) => {
       <section class="form_popup">
         <div class="login_form" id="login_form">
           <div class="hd-lg">
-            <img src="images/logo.png" alt="" />
+            <img class="logo_signin" src="images/Viral.png" alt="" />
             <span>Log into your Viralmu account</span>
           </div>
           <div class="user-account-pr">

@@ -10,7 +10,7 @@ export default function Home() {
                         <div class="top_header_content">
                             <div class="menu_logo">
                                 <a href="/" title="" class="logo">
-                                    <img src="images/logo.png" alt="" />
+                                    <img class ='logo' src="images/Viral.png" alt="" />
                                 </a>
                             </div>
                             <div class="search_form">
@@ -66,7 +66,6 @@ export default function Home() {
                 <div class="container">
                     <div class="banner-text">
                         <h2>Upload your viral video right now!</h2>
-                        <a href="/signin" title="">Create my account</a>
                     </div>
                 </div>
             </section>

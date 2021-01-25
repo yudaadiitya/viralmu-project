@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.menu_logo{
+  position: relative;
+  margin-top: -40px;
+  padding-top: 0%;
+}
+
+.logo{
+  height: 120px;
+  position: relative;
+  margin-top: 0px;
+  padding-top: 0%;
+}
+
+.logo_signin{
+  height: 200px;
+  position: relative;
+  margin-top: 0px;
+  padding-top: 0%;
+}
